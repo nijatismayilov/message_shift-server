@@ -1,0 +1,29 @@
+{
+  "env": {
+    "node": true,
+    "es2020": true
+  },
+  "extends": [
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 11
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "warn",
+      {
+        "printWidth": 100,
+        "trailingComma": "es5",
+        "semi": true,
+        "jsxSingleQuote": true,
+        "singleQuote": false,
+        "useTabs": true,
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}
