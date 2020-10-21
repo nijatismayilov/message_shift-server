@@ -26,14 +26,7 @@ router.post("/SignIn", async (req, res) => {
 			jwt.sign({ id: user.id }, config.get("jwtSecret"), { expiresIn: 604800 }, (err, token) => {
 				if (err) throw err;
 
-				res.json({
-					token,
-					user: {
-						id: user.id,
-						name: user.name,
-						email: user.email,
-					},
-				});
+				res.json(token);
 			});
 		} catch (err) {
 			console.log(err);
