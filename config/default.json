@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://Message-Shift-User:7us8UBeDcvogSGp6@cluster0.deepn.mongodb.net/message-shift?retryWrites=true&w=majority",
+  "jwtSecret": "shift_message_app"
+}
