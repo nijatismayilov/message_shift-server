@@ -2,9 +2,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const config = require("config");
 const cors = require("cors");
+const RequestIp = require("@supercharge/request-ip");
+
+const expressIpMiddleware = (req, res, next) => {
+	req.ip = RequestIp.getClientIp(req);
+
+	next();
+};
 
 const app = express();
 
+// app.use(expressIpMiddleware());
 app.use(cors());
 app.use(express.json());
 
