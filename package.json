@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/nicatismayilov/message_shift-server#readme",
   "dependencies": {
+    "@supercharge/request-ip": "^1.1.2",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.2",
     "cors": "^2.8.5",
