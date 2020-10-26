@@ -37,9 +37,9 @@ router.post("/SignIn", async (req, res) => {
 });
 
 router.post("/SignUp", async (req, res) => {
-	const { name, email, password } = req.body;
+	const { name, surname, email, password } = req.body;
 
-	if (!name || !email || !password)
+	if (!name || !surname || !email || !password)
 		return res.status(400).json({ message: "Required fields cannot be empty" });
 
 	try {
@@ -48,6 +48,7 @@ router.post("/SignUp", async (req, res) => {
 
 		const newUser = new User({
 			name,
+			surname,
 			email,
 			password,
 		});
