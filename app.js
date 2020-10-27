@@ -1,29 +1,33 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const config = require("config");
+const morgan = require("morgan");
+const createError = require("http-errors");
 const cors = require("cors");
-const RequestIp = require("@supercharge/request-ip");
-
-const expressIpMiddleware = (req, res, next) => {
-	req.ip = RequestIp.getClientIp(req);
-
-	next();
-};
 
 const app = express();
 
-// app.use(expressIpMiddleware());
+require("./helpers/init_mongodb");
+require("./helpers/init_redis");
+
+app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
-const db = config.get("mongoURI");
+app.use("/api/auth", require("./routes/Auth.route"));
+app.use("/api/Users", require("./routes/users"));
 
-mongoose
-	.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-	.then(() => console.log("MongoDB Connected"))
-	.catch((err) => console.log(err));
+app.use(async (req, res, next) => {
+	next(createError.NotFound());
+});
 
-app.use("/api/Users", require("./routes/api/users"));
+app.use((err, req, res, next) => {
+	res.status(err.status || 500);
+	res.send({
+		error: {
+			status: err.status || 500,
+			message: err.message,
+		},
+	});
+});
 
 const PORT = process.env.PORT || 5000;
 
