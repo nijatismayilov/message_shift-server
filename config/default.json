@@ -1,5 +1,7 @@
 {
   "mongo-URI": "mongodb+srv://Message-Shift-User:7us8UBeDcvogSGp6@cluster0.deepn.mongodb.net/message-shift?retryWrites=true&w=majority",
   "jwt-access-token-secret": "14ef1caf39cdaa9b21fdbc0ccab8b1172837915c97bf8011dabe6157fe9458a8ac6b96a36e4ea74e268c28c30ab669a7c50a70c265218b90903271a25f75be21",
-  "jwt-refresh-token-secret": "74175ef562fda1b30423b2d203600a4b368764baf056eae65271ed93f55adde0d7456502a2262fa5590ed045d11a7f730c02202c545ef88241ea9b8c8463f924"
+  "jwt-refresh-token-secret": "74175ef562fda1b30423b2d203600a4b368764baf056eae65271ed93f55adde0d7456502a2262fa5590ed045d11a7f730c02202c545ef88241ea9b8c8463f924",
+  "redis-host": "ec2-54-76-101-237.eu-west-1.compute.amazonaws.com",
+  "redis-password": "pa41498337cfb25535ec09fd491f0fbfc8a50e8a7fc478ee9991495c84212c5c1"
 }
