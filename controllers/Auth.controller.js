@@ -68,7 +68,7 @@ module.exports = {
 
 	signOut: async (req, res, next) => {
 		try {
-			const { refreshToken } = req.body;
+			const refreshToken = req.params.token;
 
 			if (!refreshToken) throw createError.BadRequest();
 
@@ -79,7 +79,6 @@ module.exports = {
 					throw createError.InternalServerError();
 				}
 
-				console.log(val);
 				res.sendStatus(204);
 			});
 		} catch (error) {

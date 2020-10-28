@@ -9,6 +9,6 @@ router.post("/SignIn", AuthController.signIn);
 
 router.post("/RefreshToken", AuthController.refreshToken);
 
-router.delete("/SignOut", AuthController.signOut);
+router.delete("/SignOut/:token", AuthController.signOut);
 
 module.exports = router;
