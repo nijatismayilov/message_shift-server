@@ -16,7 +16,10 @@ module.exports = {
 			const user = new User(result);
 			const savedUser = await user.save();
 
-			res.send({ email: savedUser.email });
+			const accessToken = await signAccessToken(user.id);
+			const refreshToken = await signRefreshToken(user.id);
+
+			res.send({ email: savedUser.email, accessToken, refreshToken });
 		} catch (error) {
 			if (error.isJoi) error.status = 422;
 			next(error);
