@@ -1,8 +1,8 @@
 const createError = require("http-errors");
 const User = require("../models/User.model");
-const { authSchema, userSchema } = require("../helpers/validation_schema");
-const { signAccessToken, signRefreshToken, verifyRefreshToken } = require("../helpers/jwt_helper");
-const redisClient = require("../helpers/init_redis");
+const { authSchema, userSchema } = require("../utils/validation_schema");
+const { signAccessToken, signRefreshToken, verifyRefreshToken } = require("../utils/jwt_helper");
+const redisClient = require("../utils/init_redis");
 
 module.exports = {
 	signUp: async (req, res, next) => {

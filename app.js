@@ -5,15 +5,17 @@ const cors = require("cors");
 
 const app = express();
 
-require("./helpers/init_mongodb");
-require("./helpers/init_redis");
+require("./utils/init_mongodb");
+require("./utils/init_redis");
+
+const { verifyAccessToken } = require("./utils/jwt_helper");
 
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", require("./routes/Auth.route"));
-app.use("/api/Users", require("./routes/users"));
+app.use("/api/users", verifyAccessToken, require("./routes/Users.route"));
 
 app.use(async (req, res, next) => {
 	next(createError.NotFound());
