@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const createError = require("http-errors");
-const redisClient = require("../helpers/init_redis");
+const redisClient = require("../utils/init_redis");
 
 module.exports = {
 	signAccessToken: (userId) => {
@@ -9,7 +9,7 @@ module.exports = {
 			const payload = {};
 			const secret = config.get("jwt-access-token-secret");
 			const options = {
-				expiresIn: "1h",
+				expiresIn: 15,
 				issuer: "message-shift.com",
 				audience: userId,
 			};
