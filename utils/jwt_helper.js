@@ -9,7 +9,7 @@ module.exports = {
 			const payload = {};
 			const secret = config.get("jwt-access-token-secret");
 			const options = {
-				expiresIn: 15,
+				expiresIn: "12h",
 				issuer: "message-shift.com",
 				audience: userId,
 			};
@@ -72,7 +72,7 @@ module.exports = {
 		return new Promise((resolve, reject) => {
 			const secret = config.get("jwt-refresh-token-secret");
 			jwt.verify(refreshToken, secret, (err, payload) => {
-				if (err) return reject(createError.Unauthorized());
+				if (err) return reject(createError.Unauthorized("Please sign in again"));
 
 				const userId = payload.aud;
 
