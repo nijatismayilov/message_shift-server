@@ -10,8 +10,8 @@ require("./utils/init_redis");
 
 const { verifyAccessToken } = require("./utils/jwt_helper");
 
-app.use(morgan("dev"));
 app.use(cors());
+app.use(morgan("dev"));
 app.use(express.json());
 
 app.use("/api/auth", require("./routes/Auth.route"));
