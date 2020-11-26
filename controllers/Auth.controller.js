@@ -45,7 +45,7 @@ module.exports = {
 
 			res.send({ accessToken, refreshToken });
 		} catch (error) {
-			if (error.isJoi) return next(createError.BadRequest("Either email or password is invalid"));
+			if (error.isJoi) return next(createError.BadRequest(req.body));
 			next(error);
 		}
 	},
