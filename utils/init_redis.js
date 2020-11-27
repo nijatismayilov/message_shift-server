@@ -2,9 +2,11 @@ const redis = require("redis");
 const config = require("config");
 
 const client = redis.createClient({
-	port: 26119,
-	host: config.get("redis-host"),
-	password: config.get("redis-password"),
+	port: 6379,
+	host: "127.0.0.1",
+	// port: 26119,
+	// host: config.get("redis-host"),
+	// password: config.get("redis-password"),
 });
 
 client.on("connect", () => console.log("Client connected to redis"));
