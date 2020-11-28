@@ -14,6 +14,9 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 
+app.use("/", (req, res) => {
+	res.send("Welcome to MShift");
+});
 app.use("/api/auth", require("./routes/Auth.route"));
 app.use("/api/users", verifyAccessToken, require("./routes/Users.route"));
 
